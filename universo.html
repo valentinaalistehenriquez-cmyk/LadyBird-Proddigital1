@@ -1,0 +1,161 @@
+<!DOCTYPE html:5>
+<html>
+    <head>
+        <title> El universo de la pelicula</title>
+         <link rel="stylesheet" href="styles.css">
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+          <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">
+            ☰
+          </button>
+
+    <nav class="header-izquierda" id="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="universo.html" class="usando">Universo</a>
+                <a href="tienda.html">Tienda</a>
+                <a href="premios.html">Premios</a>
+                <a href="Quiz.html">¿Qué personaje sos?</a>
+            </nav>
+         <nav class="header-derecha">
+        <a href="#" class="carrito-link">
+          <img src="carrito.png" alt="Carrito" class="icono-carrito">
+        </a>
+        <span id="zona-usuario">
+        <span id="botones-ingreso">
+          <a href="#" onclick="abrirRegistro()">Registrarse</a> | <a href="#" onclick="abrirLogin()">Iniciar sesión</a>
+        </span>
+        
+        <span id="mensaje-bienvenida" style="display: none;">
+          <span id="texto-hola" style="font-family:'Inter', serif; font-weight: bold;"></span> | 
+          <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+        </span>
+      </span>
+    </nav>
+    
+    <div id="popup-login" class="popup recuadro-caja" style="display: none;">
+      <h3 style="color:#d00515; font-family:'Playfair Display', serif;">Iniciar Sesión</h3>
+      <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Nombre:</p>
+      <input type="text" id="login-nombre" placeholder="Ej: Valentina" style="margin-bottom: 15px; padding: 5px; width: 100%;">
+      <button onclick="procesarLogin()" class="boton-cerrar">Ingresar</button>
+      <button onclick="cerrarPopups()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
+      <p style="margin-top: 15px; font-family:'Inter', serif; font-size: 14px;">
+        ¿No tenés cuenta? <a href="#" onclick="abrirRegistro()">Registrate acá</a>
+      </p>
+    </div>
+    
+    <div id="popup-registro" class="popup recuadro-caja" style="display: none;">
+      <h3 style="color:#d00515; font-family:'Playfair Display', serif;">Registrarse</h3>
+      <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Nombre:</p>
+      <input type="text" id="registro-nombre" placeholder="Ej: Valentina" style="margin-bottom: 15px; padding: 5px; width: 100%;">
+      <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Email:</p>
+      <input type="email" id="registro-email" placeholder="lady@bird.com" style="margin-bottom: 15px; padding: 5px; width: 100%;">
+      <button onclick="procesarRegistro()" class="boton-cerrar">Crear cuenta</button>
+      <button onclick="cerrarPopups()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
+    </div>
+  </header>
+        <h1>El universo de la pelicula</h1>
+
+        <section class="personajes">
+            <div class="cuadrado-personaje">
+                <div class="imagen-personaje">
+                    <video autoplay loop muted playsinline class="video-fondo">
+
+                        <source src="Fotospersonajes/VideoChristineladybirdnuevoclaselol.mp4" type="video/mp4">
+
+                    </video>
+                    <img src="Fotospersonajes/fotorealrealLB.jpg" class="foto-frente">
+                </div>
+                <h3>Christine "Lady bird" Mcpherson</h3>
+                <p class="descripcion-pjs">Decidida, introspectiva y enérgica. Su buen corazón choca constantemente con las trampas del último año escolar, llevándola a veces a perder de vista a quienes realmente la valoran.</p>
+            </div>
+            <div class="cuadrado-personaje">
+                <div class="imagen-personaje">
+                    <video autoplay loop muted playsinline class="video-fondo">
+                        <source src="Fotospersonajes/Marioneee video [protyecto web.mp4" type="video/mp4">
+                    </video>
+                    <img src="Fotospersonajes/marioncapaz.jpg" class="foto-frente">
+                </div>
+                <h3>Marion Mcpherson</h3>
+                <p class="descripcion-pjs">Trabaja turnos dobles en el hospital, lo que forjó su carácter pragmático e implacable. Ama a su hija con fuerza, pero su pánico al fracaso hace que se exprese casi siempre a través de críticas.</p>
+            </div>
+    
+            <div class="cuadrado-personaje">
+                <div class="imagen-personaje">
+                    <video autoplay loop muted playsinline class="video-fondo">
+                        <source src="Fotospersonajes/Nuevovideojulieclase.mp4" type="video/mp4">
+                    </video>
+                    <img src="Fotospersonajes/nuevanuevafotojulie.jpg" class="foto-frente">
+                </div>
+                <h3>Julie Steffans</h3>
+                <p class="descripcion-pjs">Auténtica y cálida, es el refugio incondicional de la protagonista. Lejos de las poses del colegio, demuestra una nobleza enorme al mantenerse firme cuando las cosas realmente importan.</p>
+            </div>
+
+            <div class="cuadrado-personaje">
+                <div class="imagen-personaje">
+                     <video autoplay loop muted playsinline class="video-fondo">
+                        <source src="Fotospersonajes/NUEVOVIDEODANNY.mp4" type="video/mp4">
+                    </video>
+                    <img src="Fotospersonajes/fotodanny1.jpg" class="foto-frente">
+                </div>
+                <h3>Danny O'Neill</h3>
+                <p class="descripcion-pjs">Dulce, educado y apasionado por el teatro. Aunque proyecta la imagen del 'chico ideal' de una familia tradicional, esconde a un adolescente vulnerable, aterrorizado de revelar su verdadera identidad.</p>
+            </div>
+
+            <div class="cuadrado-personaje">
+                <div class="imagen-personaje">
+                    <video autoplay loop muted playsinline class="video-fondo">
+                        <source src="Fotospersonajes/NUEVIOCLASEKYLE.mp4" type="video/mp4">
+                    </video>
+                    <img src="Fotospersonajes/Kylecapazm1.jpg" class="foto-frente">
+                </div>
+                <h3>Kyle Scheible</h3>
+                <p class="descripcion-pjs">El clásico adolescente rebelde con aura de misterio. Su distancia lo vuelve atractivo, pero termina demostrando que, lejos del pensador profundo que aparenta, es un chico despistado y egocéntrico.</p>
+            </div>
+
+             <div class="cuadrado-personaje">
+                <div class="imagen-personaje">
+                     <video autoplay loop muted playsinline class="video-fondo">
+                        <source src="Fotospersonajes/CLASENUEVOJENNA.mp4" type="video/mp4">
+                    </video>
+                    <img src="Fotospersonajes/fotojennanuevam.jpg" class=foto-frente>
+                </div>
+                <h3>Jenna Walton</h3>
+                <p class="descripcion-pjs">Representa todo lo que Lady Bird anhela: estatus, popularidad y comodidades. Es el motor de la crisis de identidad de la protagonista, quien llega a mentir sobre su esencia para encajar en su círculo.</p>
+            </div>
+        </section>
+<section class="seccion-mapa">
+    <div class="contenedor-texto-mapa">
+        <h2>Las locaciones de Lady Bird</h2>
+        <p>Para Lady Bird, su ciudad natal es un lugar del que desesperadamente quiere escapar, pero que en el fondo ama con la misma intensidad. Descubrí los rincones reales de <strong>Sacramento, la capital de California</strong>, que le dieron vida a la película y recorré los escenarios exactos donde se filmó esta historia.</p>
+    </div>
+    
+    <div class="contenedor-iframe">
+        <iframe src="https://www.google.com/maps/d/u/4/embed?mid=1rDuziK86xMrrmRM3bzXUV0yM9jxv9cI&ehbc=2E312F" height="480"></iframe>
+    </div>
+</section>
+       
+<footer class="footer-copyright">
+         <div class="info-contacto">
+        <p>Contacto: <a href="mailto:info@a24.com">info@a24.com</a></p>
+        <p>Seguinos en: 
+            <a href="https://www.instagram.com/ladybirdmovie/" target="_blank">Instagram</a> | 
+            <a href="https://letterboxd.com/film/lady-bird/" target="_blank">Letterboxd</a> | 
+            <a href="https://twitter.com/LadyBirdMovie" target="_blank">X (Twitter)</a>
+        </p>
+      </div>
+        <p class="legales">© 2026 - Todos los derechos reservados</p>
+       </footer>
+       
+       <script src="script.js"></script>
+    </body>
+</html>

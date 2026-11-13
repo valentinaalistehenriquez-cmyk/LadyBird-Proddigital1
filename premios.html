@@ -1,0 +1,363 @@
+<!DOCTYPE html:5>
+<html>
+    <head>
+        <title> El universo de la pelicula</title>
+         <link rel="stylesheet" href="styles.css">
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+          <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">
+            ☰
+          </button>
+
+    <nav class="header-izquierda" id="nav-links">
+                 <a href="index.html">Inicio</a>
+                 <a href="universo.html">Universo</a>
+                 <a href="tienda.html">Tienda</a>
+                 <a href="premios.html" class="usando">Premios</a>
+                 <a href="Quiz.html">¿Qué personaje sos?</a>
+            </nav>
+         <nav class="header-derecha">
+        <a href="#" class="carrito-link">
+          <img src="carrito.png" alt="Carrito" class="icono-carrito">
+        </a>
+      <span id="zona-usuario">
+        <span id="botones-ingreso">
+          <a href="#" onclick="abrirRegistro()">Registrarse</a> | <a href="#" onclick="abrirLogin()">Iniciar sesión</a>
+        </span>
+        
+        <span id="mensaje-bienvenida" style="display: none;">
+          <span id="texto-hola" style="font-family:'Inter', serif; font-weight: bold;"></span> | 
+          <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+        </span>
+      </span>
+    </nav>
+    
+    <div id="popup-login" class="popup recuadro-caja" style="display: none;">
+      <h3 style="color:#d00515; font-family:'Playfair Display', serif;">Iniciar Sesión</h3>
+      <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Nombre:</p>
+      <input type="text" id="login-nombre" placeholder="Ej: Valentina" style="margin-bottom: 15px; padding: 5px; width: 100%;">
+      <button onclick="procesarLogin()" class="boton-cerrar">Ingresar</button>
+      <button onclick="cerrarPopups()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
+      <p style="margin-top: 15px; font-family:'Inter', serif; font-size: 14px;">
+        ¿No tenés cuenta? <a href="#" onclick="abrirRegistro()">Registrate acá</a>
+      </p>
+    </div>
+    
+    <div id="popup-registro" class="popup recuadro-caja" style="display: none;">
+      <h3 style="color:#d00515; font-family:'Playfair Display', serif;">Registrarse</h3>
+      <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Nombre:</p>
+      <input type="text" id="registro-nombre" placeholder="Ej: Valentina" style="margin-bottom: 15px; padding: 5px; width: 100%;">
+      <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Email:</p>
+      <input type="email" id="registro-email" placeholder="lady@bird.com" style="margin-bottom: 15px; padding: 5px; width: 100%;">
+      <button onclick="procesarRegistro()" class="boton-cerrar">Crear cuenta</button>
+      <button onclick="cerrarPopups()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
+    </div>
+  </header>
+        
+        <h1>Premios</h1>
+        <input type="radio" id="filtro-todos" name="premios" checked>
+        <input type="radio" id="filtro-pelicula" name="premios">
+        <input type="radio" id="filtro-direccion" name="premios">
+        <input type="radio" id="filtro-actuacion" name="premios">
+        <input type="radio" id="filtro-guion" name="premios">
+        
+        <section class="seccion-premios">
+          <aside class="panel-filtros">
+            <h3>Categorías</h3>
+            <label for="filtro-todos" class="filtro-btn">Todos</label>
+            <label for="filtro-pelicula" class="filtro-btn">Película</label>
+            <label for="filtro-direccion" class="filtro-btn">Dirección</label>
+            <label for="filtro-actuacion" class="filtro-btn">Actuación</label>
+            <label for="filtro-guion" class="filtro-btn">Guión</label>
+          </aside>
+          
+      <div class="contenedor-tarjetas-premios">   
+      <div class="tarjeta-premio" data-categoria="pelicula">
+          <div class="tarjeta-interior">
+            <div class="tarjeta-frente">
+                <h3>Mejor Película (Comedia/Musical)</h3>
+                <p>Golden Globe Awards</p>
+                <span class="etiqueta-premio">Ganadora</span>
+            </div>
+            
+            <div class="tarjeta-dorso">
+                <p>Superó a grandes éxitos de taquilla y crítica en su año, como 'The Greatest Showman' y 'Get Out'.</p>
+            </div>
+        </div>
+      </div>
+
+    <div class="tarjeta-premio" data-categoria="actuacion">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Actriz (Saoirse Ronan)</h3>
+          <p>Golden Globe Awards</p>
+          <span class="etiqueta-premio">Ganadora</span>
+        </div>
+        
+        <div class="tarjeta-dorso">
+          <p>Saoirse brilló en la gala y dio su discurso de agradecimiento mientras su madre la miraba por FaceTime.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarjeta-premio" data-categoria="direccion">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Directora</h3>
+          <p>National Board of Review</p>
+          <span class="etiqueta-premio">Ganadora</span>
+        </div>
+        
+        <div class="tarjeta-dorso">
+          <p>Un reconocimiento histórico y clave que validó el debut de Greta Gerwig como directora en solitario.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarjeta-premio" data-categoria="actuacion">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Actriz de Reparto (Laurie Metcalf)</h3>
+          <p>National Board of Review</p>
+          <span class="etiqueta-premio">Ganadora</span>
+        </div>
+        
+        <div class="tarjeta-dorso">
+          <p>La crítica destacó la química innegable, caótica y real entre Laurie Metcalf y Saoirse Ronan.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarjeta-premio" data-categoria="guion">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Guión Original</h3>
+          <p>Independent Spirit Awards</p>
+          <span class="etiqueta-premio">Ganadora</span>
+        </div>
+        
+        <div class="tarjeta-dorso">
+          <p>El premio más prestigioso del cine independiente norteamericano coronó los diálogos de la película.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarjeta-premio" data-categoria="pelicula">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Película</h3>
+          <p>Premios Oscar</p>
+          <span class="etiqueta-nominacion">Nominada</span>
+        </div>
+        
+      <div class="tarjeta-dorso">
+        <p>Llegó a la gala como una de las películas más aclamadas de 2017, con un histórico 99% en Rotten Tomatoes.</p>
+      </div>
+    </div>
+  </div>
+
+    <div class="tarjeta-premio" data-categoria="direccion">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Directora</h3>
+          <p>Premios Oscar</p>
+          <span class="etiqueta-nominacion">Nominada</span>
+        </div>
+        <div class="tarjeta-dorso">
+          <p>Greta Gerwig hizo historia al ser apenas la quinta mujer nominada en esta categoría en 90 años de los premios.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarjeta-premio" data-categoria="actuacion">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Actriz (Saoirse Ronan)</h3>
+          <p>Premios Oscar</p>
+          <span class="etiqueta-nominacion">Nominada</span>
+        </div>
+        
+        <div class="tarjeta-dorso">
+          <p>Esta fue la tercera nominación al Oscar en la carrera de Saoirse, quien apenas tenía 23 años de edad.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarjeta-premio" data-categoria="actuacion">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Actriz de Reparto (Laurie Metcalf)</h3>
+          <p>Premios Oscar</p>
+          <span class="etiqueta-nominacion">Nominada</span>
+        </div>
+        
+        <div class="tarjeta-dorso">
+          <p>El profundo y complejo papel de Marion McPherson consolidó a Laurie Metcalf como una fuerza del cine.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarjeta-premio" data-categoria="guion">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Guión Original</h3>
+          <p>Premios Oscar</p>
+          <span class="etiqueta-nominacion">Nominada</span>
+        </div>
+        
+        <div class="tarjeta-dorso">
+          <p>El primer borrador escrito por Greta tenía más de 350 páginas y tomaba inspiración de su vida en Sacramento.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarjeta-premio" data-categoria="actuacion">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Actriz (Saoirse Ronan)</h3>
+          <p>BAFTA 2018</p>
+          <span class="etiqueta-nominacion">Nominada</span>
+        </div>
+        
+        <div class="tarjeta-dorso">
+          <p>Nominación de peso en los premios más prestigiosos entregados por la academia de cine británica.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarjeta-premio" data-categoria="guion">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Guion Original</h3>
+          <p>BAFTA 2018</p>
+          <span class="etiqueta-nominacion">Nominada</span>
+        </div>
+        
+        <div class="tarjeta-dorso">
+          <p>Reconocimiento internacional al guion profundamente personal e íntimo estructurado por Gerwig.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarjeta-premio" data-categoria="pelicula">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Película</h3>
+          <p>Círculo de Críticos de Nueva York</p>
+          <span class="etiqueta-premio">Ganadora</span>
+        </div>
+        
+        <div class="tarjeta-dorso">
+          <p>Los exigentes críticos neoyorquinos eligieron a Lady Bird como la obra cinematográfica indiscutida del año.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarjeta-premio" data-categoria="actuacion">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Actriz (Saoirse Ronan)</h3>
+          <p>Círculo de Críticos de Nueva York</p>
+          <span class="etiqueta-premio">Ganadora</span>
+        </div>
+        <div class="tarjeta-dorso">
+          <p>Saoirse fue galardonada por una de las asociaciones de críticos de cine más antiguas e influyentes del país.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarjeta-premio" data-categoria="actuacion">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Actriz Secundaria (Laurie Metcalf)</h3>
+          <p>Asociación de Críticos de Los Ángeles</p>
+          <span class="etiqueta-premio">Ganadora</span>
+        </div>
+        
+        <div class="tarjeta-dorso">
+          <p>La crítica de Los Ángeles se rindió ante la interpretación maternal, estricta y amorosa de Metcalf.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarjeta-premio" data-categoria="actuacion">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Reparto</h3>
+          <p>Sindicato de Actores (SAG)</p>
+          <span class="etiqueta-nominacion">Nominada</span>
+        </div>
+        
+        <div class="tarjeta-dorso">
+          <p>Todo el elenco, incluyendo a Beanie Feldstein y Timothée Chalamet, fue celebrado por sus propios pares.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarjeta-premio" data-categoria="guion">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Guion Original</h3>
+          <p>Sindicato de Guionistas (WGA)</p>
+          <span class="etiqueta-nominacion">Nominada</span>
+        </div>
+        <div class="tarjeta-dorso">
+          <p>El sindicato de escritores la reconoció por sus diálogos ágiles, su humor realista y su gran carga emotiva.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarjeta-premio" data-categoria="direccion">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Dirección / Película</h3>
+          <p>Directors Guild of America (DGA)</p>
+          <span class="etiqueta-nominacion">Nominada</span>
+        </div>
+        
+        <div class="tarjeta-dorso">
+          <p>Greta logró meterse en el exclusivísimo y exigente club del sindicato de directores con su obra prima.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarjeta-premio" data-categoria="pelicula">
+      <div class="tarjeta-interior">
+        <div class="tarjeta-frente">
+          <h3>Mejor Película</h3>
+          <p>Sindicato de Productores (PGA)</p>
+          <span class="etiqueta-nominacion">Nominada</span>
+        </div>
+        
+        <div class="tarjeta-dorso">
+          <p>Un premio que reconoció la excelente visión y producción del estudio A24 durante toda la temporada.</p>
+        </div>
+      </div>
+    </div>
+</div>
+        </section>
+        <footer class="footer-copyright">
+          <div class="info-contacto">
+            <p>Contacto: <a href="mailto:info@a24.com">info@a24.com</a></p>
+            <p>Seguinos en: 
+              <a href="https://www.instagram.com/ladybirdmovie/" target="_blank">Instagram</a> | 
+              <a href="https://letterboxd.com/film/lady-bird/" target="_blank">Letterboxd</a> | 
+              <a href="https://twitter.com/LadyBirdMovie" target="_blank">X (Twitter)</a>
+            </p>
+          </div>
+        <p class="legales">© 2026 - Todos los derechos reservados</p>
+       </footer>
+       
+       <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html:5>
+<html>
+    <head>
+        <title> El universo de la pelicula</title>
+         <link rel="stylesheet" href="styles.css">
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+          <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">
+            ☰
+          </button>
+
+    <nav class="header-izquierda" id="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="universo.html">Universo</a>
+                <a href="tienda.html" class="usando">Tienda</a>
+                <a href="premios.html">Premios</a>
+                <a href="Quiz.html">¿Qué personaje sos?</a>
+            </nav>
+         <nav class="header-derecha">
+        <a href="#" class="carrito-link">
+          <img src="carrito.png" alt="Carrito" class="icono-carrito" onclick="mostrarCarrito()">
+        </a>
+        
+       <span id="zona-usuario">
+        <span id="botones-ingreso">
+          <a href="#" onclick="abrirRegistro()">Registrarse</a> | <a href="#" onclick="abrirLogin()">Iniciar sesión</a>
+        </span>
+        
+        <span id="mensaje-bienvenida" style="display: none;">
+          <span id="texto-hola" style="font-family:'Inter', serif; font-weight: bold;"></span> | 
+          <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+        </span>
+      </span>
+    </nav>
+    
+    <div id="popup-login" class="popup recuadro-caja" style="display: none;">
+      <h3 style="color:#d00515; font-family:'Playfair Display', serif;">Iniciar Sesión</h3>
+      <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Nombre:</p>
+      <input type="text" id="login-nombre" placeholder="Ej: Valentina" style="margin-bottom: 15px; padding: 5px; width: 100%;">
+      <button onclick="procesarLogin()" class="boton-cerrar">Ingresar</button>
+      <button onclick="cerrarPopups()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
+      <p style="margin-top: 15px; font-family:'Inter', serif; font-size: 14px;">
+        ¿No tenés cuenta? <a href="#" onclick="abrirRegistro()">Registrate acá</a>
+      </p>
+    </div>
+    
+    <div id="popup-registro" class="popup recuadro-caja" style="display: none;">
+      <h3 style="color:#d00515; font-family:'Playfair Display', serif;">Registrarse</h3>
+      <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Nombre:</p>
+      <input type="text" id="registro-nombre" placeholder="Ej: Valentina" style="margin-bottom: 15px; padding: 5px; width: 100%;">
+      <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Email:</p>
+      <input type="email" id="registro-email" placeholder="lady@bird.com" style="margin-bottom: 15px; padding: 5px; width: 100%;">
+      <button onclick="procesarRegistro()" class="boton-cerrar">Crear cuenta</button>
+      <button onclick="cerrarPopups()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
+    </div>
+</header>
+  </header>
+
+        <h1>Tienda</h1>
+        <div id="cajaCarrito" style="display: none;" class="recuadro-caja"></div>
+        <div id="mensajeLindo" style="display: none;">
+          <p id="textoMensaje"></p>
+          <button onclick="cerrarMensaje()" class="boton-cerrar">Aceptar</button>
+        </div>
+        
+        <div id="cajaLogin" style="display: none;" class="recuadro-caja">
+          <h3 style="color:#d00515; font-family:'Playfair Display', serif;">Iniciar Sesión</h3>
+          <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Nombre:</p>
+          <input type="text" id="inputNombre" placeholder="Ej: Valentina" style="margin-bottom: 15px; padding: 5px;">
+          <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Email:</p>
+          <input type="email" id="inputEmail" placeholder="lady@bird.com" style="margin-bottom: 15px; padding: 5px;">
+          
+          <br>
+          <button onclick="procesarLogin()" class="boton-cerrar">Entrar</button>
+          <button onclick="cerrarLogin()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
+        </div>
+        
+        <section class="contenedor-tienda">
+        <div class="cuadrado-producto">
+          <img src="AAtiendafotos/CAPAZQULTIMOPARXE.jpg">
+          <h3>Parche "Call me Lady Bird"</h3>
+          <p>Parche oficial bordado de A24</p>
+          <p class="precio">$12.000</p>
+          <button onclick="agregarAlCarrito('Parche Call me Lady Bird', 12000)"> Comprar</button>
+        </div>
+        <div class="cuadrado-producto">
+          <img src="AAtiendafotos/ULTIMOREALYESOOG1.jpg">
+          <h3>Puzzle Yeso rosa</h3>
+          <p>Rompecabezas a todo color de 100 piezas, presentado en una lata de metal coleccionable</p>
+          <p class="precio">$20.000</p>
+          <button onclick="agregarAlCarrito('Puzzle Yeso rosa', 20000)"> Comprar</button>
+        </div>
+        <div class="cuadrado-producto">
+          <img src="AAtiendafotos/pruebalibro.jpg">
+          <h3>Libro guión</h3>
+          <p>Libro oficial del guión de Lady Bird</p>
+          <p class="precio">$45.000</p>
+          <button onclick="agregarAlCarrito('Libro guión', 45000)"> Comprar</button>
+        </div>
+        <div class="cuadrado-producto">
+          <img src="AAtiendafotos/Opcionesposters.jpg">
+          <h3>Posters Lady Bird</h3>
+          <p>Poster a elección</p>
+          <p class="precio">$8.000</p>
+          <button onclick="agregarAlCarrito('Posters Lady Bird', 8000)"> Comprar</button>
+        </div>
+        <div class="cuadrado-producto">
+          <img src="AAtiendafotos/RemeraLadyBird.jpg">
+          <h3>Remera Joan Didion</h3>
+          <p>Camiseta beige de algodón con diseño retro de Lady Bird y la icónica cita de Joan Didion sobre Sacramento.</p>
+          <p class="precio">$28.000</p>
+          <button onclick="agregarAlCarrito('Remera Joan Didion', 28000)"> Comprar</button>
+        </div>
+        <div class="cuadrado-producto">
+          <img src="AAtiendafotos/remerosa.jpg">
+          <h3>Remera Lady Bird Dark</h3>
+          <p>Remera negra de algodón con un diseño alternativo del póster en tonos fucsia y el logo clásico en cursiva.</p>
+          <p class="precio">$28.000</p>
+          <button onclick="agregarAlCarrito('Remera Lady Bird Dark', 28000)"> Comprar</button>
+        </div>
+        <div class="cuadrado-producto">
+          <img src="AAtiendafotos/remevote4LBREAL.jpg">
+          <h3>Remera "Vote Lady Bird"</h3>
+          <p>Remera blanca de algodón con diseño "Vote Lady Bird".</p>
+          <p class="precio">$28.000</p>
+          <button onclick="agregarAlCarrito('Remera Vote Lady Bird', 28000)"> Comprar</button>
+        </div>
+        <div class="cuadrado-producto">
+          <img src="AAtiendafotos/LBforpresidentremeraxiamor.jpg">
+          <h3>Remera "Lady Bird for President"</h3>
+          <p>Remera blanca de algodón con diseño "Lady Bird for President".</p>
+          <p class="precio">$28.000</p>
+          <button onclick="agregarAlCarrito('Remera Lady Bird for President', 28000)"> Comprar</button>
+        </div>
+        <div class="cuadrado-producto">
+          <img src="AAtiendafotos/Remerawrittenbygg.jpg">
+          <h3>Remera "Directed by Greta Gerwig"</h3>
+          <p>Remera blanca de algodón con diseño "Directed by Greta Gerwig".</p>
+          <p class="precio">$28.000</p>
+          <button onclick="agregarAlCarrito('Remera Directed by Greta Gerwig', 28000)"> Comprar</button>
+        </div>
+          <div class="cuadrado-producto">
+          <img src="AAtiendafotos/autoStckr.jpg">
+          <h3>Sticker para auto</h3>
+          <p>Sticker de vinilo resistente al agua para auto</p>
+          <p class="precio">$5.000</p>
+          <button onclick="agregarAlCarrito('Sticker para auto', 5000)"> Comprar</button>
+        </div>
+        <div class="cuadrado-producto">
+          <img src="AAtiendafotos/PINLB.jpg">
+          <h3>Pin Lady Bird</h3>
+          <p>Pin de metal con diseño de Lady Bird</p>
+          <p class="precio">$3.000</p>
+          <button onclick="agregarAlCarrito('Pin Lady Bird', 3000)"> Comprar</button>
+        </div>
+       </section>
+        <footer class="footer-copyright">
+           <div class="info-contacto">
+        <p>Contacto: <a href="mailto:info@a24.com">info@a24.com</a></p>
+        <p>Seguinos en: 
+            <a href="https://www.instagram.com/ladybirdmovie/" target="_blank">Instagram</a> | 
+            <a href="https://letterboxd.com/film/lady-bird/" target="_blank">Letterboxd</a> | 
+            <a href="https://twitter.com/LadyBirdMovie" target="_blank">X (Twitter)</a>
+        </p>
+      </div>
+        <p class="legales">© 2026 - Todos los derechos reservados</p>
+       </footer>
+<script src="script.js"></script>
+</body>
+</html>

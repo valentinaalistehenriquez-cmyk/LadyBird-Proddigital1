@@ -1,0 +1,139 @@
+<!DOCTYPE html:5>
+<html>
+    <head>
+        <title> Quiz Lady Bird</title>
+         <link rel="stylesheet" href="styles.css">
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+          <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">
+            ☰
+          </button>
+
+    <nav class="header-izquierda" id="nav-links">
+                 <a href="index.html">Inicio</a>
+                 <a href="universo.html">Universo</a>
+                 <a href="tienda.html">Tienda</a>
+                 <a href="premios.html">Premios</a>
+                 <a href="Quiz.html" class="usando">¿Qué personaje sos?</a>
+            </nav>
+         <nav class="header-derecha">
+        <a href="#" class="carrito-link">
+          <img src="carrito.png" alt="Carrito" class="icono-carrito">
+        </a>
+     <span id="zona-usuario">
+        <span id="botones-ingreso">
+          <a href="#" onclick="abrirRegistro()">Registrarse</a> | <a href="#" onclick="abrirLogin()">Iniciar sesión</a>
+        </span>
+        
+        <span id="mensaje-bienvenida" style="display: none;">
+          <span id="texto-hola" style="font-family:'Inter', serif; font-weight: bold;"></span> | 
+          <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+        </span>
+      </span>
+    </nav>
+    
+    <div id="popup-login" class="popup recuadro-caja" style="display: none;">
+      <h3 style="color:#d00515; font-family:'Playfair Display', serif;">Iniciar Sesión</h3>
+      <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Nombre:</p>
+      <input type="text" id="login-nombre" placeholder="Ej: Valentina" style="margin-bottom: 15px; padding: 5px; width: 100%;">
+      <button onclick="procesarLogin()" class="boton-cerrar">Ingresar</button>
+      <button onclick="cerrarPopups()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
+      <p style="margin-top: 15px; font-family:'Inter', serif; font-size: 14px;">
+        ¿No tenés cuenta? <a href="#" onclick="abrirRegistro()">Registrate acá</a>
+      </p>
+    </div>
+    
+    <div id="popup-registro" class="popup recuadro-caja" style="display: none;">
+      <h3 style="color:#d00515; font-family:'Playfair Display', serif;">Registrarse</h3>
+      <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Nombre:</p>
+      <input type="text" id="registro-nombre" placeholder="Ej: Valentina" style="margin-bottom: 15px; padding: 5px; width: 100%;">
+      <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Email:</p>
+      <input type="email" id="registro-email" placeholder="lady@bird.com" style="margin-bottom: 15px; padding: 5px; width: 100%;">
+      <button onclick="procesarRegistro()" class="boton-cerrar">Crear cuenta</button>
+      <button onclick="cerrarPopups()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
+    </div>
+</header>
+  </header>
+        
+      
+        <h1>Quiz de personalidad</h1>
+        <h2>Descubrí qué personaje de Lady Bird sos</h2>
+       <div class="caja-pregunta">
+  <p><strong>1. ¿Qué es lo que más deseás para tu futuro inmediato?</strong></p>
+  <div><button id="btn-1-A" onclick="elegirOpcion(1, 'A', 'btn-1-A')">A) Irme a una ciudad donde haya cultura de verdad, cueste lo que cueste.</button></div>
+  <div><button id="btn-1-B" onclick="elegirOpcion(1, 'B', 'btn-1-B')">B) Tener estabilidad, ser realista y llegar a fin de mes sin angustiarme.</button></div>
+  <div><button id="btn-1-C" onclick="elegirOpcion(1, 'C', 'btn-1-C')">C) Entrar a la universidad, estar tranquila y cerca de mi mejor amiga/o.</button></div>
+  <div><button id="btn-1-D" onclick="elegirOpcion(1, 'D', 'btn-1-D')">D) No participar en la economía de mercado.</button></div>
+  <div><button id="btn-1-E" onclick="elegirOpcion(1, 'E', 'btn-1-E')">E) Hacer algo que mantenga orgullosa a mi familia.</button></div>
+</div>
+
+<div class="caja-pregunta">
+      <p><strong>2. ¿Cómo definirías tu estilo o tu estética personal?</strong></p>
+      <div><button id="btn-2-A" onclick="elegirOpcion(2, 'A', 'btn-2-A')">A) Ropa de segunda mano intervenida, con mucha onda, que exprese quién soy.</button></div>
+      <div><button id="btn-2-B" onclick="elegirOpcion(2, 'B', 'btn-2-B')">B) Práctico, prolijo y, fundamentalmente, comprado en oferta o cuidando el bolsillo.</button></div>
+      <div><button id="btn-2-C" onclick="elegirOpcion(2, 'C', 'btn-2-C')">C) Cómodo, romántico, sin intenciones de llamar mucho la atención.</button></div>
+      <div><button id="btn-2-D" onclick="elegirOpcion(2, 'D', 'btn-2-D')">D) Monocromático, desaliñado pero fríamente calculado.</button></div>
+      <div><button id="btn-2-E" onclick="elegirOpcion(2, 'E', 'btn-2-E')">E) Clásico, chombas, suéteres, siempre impecable.</button></div>
+    </div>
+
+ <div class="caja-pregunta">
+      <p><strong>3. Es viernes a la noche, ¿cuál es tu plan ideal?</strong></p>
+      <div><button id="btn-3-A" onclick="elegirOpcion(3, 'A', 'btn-3-A')">A) Intento probar cosas nuevas.</button></div>
+      <div><button id="btn-3-B" onclick="elegirOpcion(3, 'B', 'btn-3-B')">B) Quedarme acomodando la casa después de una semana larguísima.</button></div>
+      <div><button id="btn-3-C" onclick="elegirOpcion(3, 'C', 'btn-3-C')">C) Comer frituras en mi cuarto, hablar de la vida y quizás llorar un poco.</button></div>
+      <div><button id="btn-3-D" onclick="elegirOpcion(3, 'D', 'btn-3-D')">D) Ir a escuchar a una banda a un bar.</button></div>
+      <div><button id="btn-3-E" onclick="elegirOpcion(3, 'E', 'btn-3-E')">E) Juntarme con amigos a cantar o organizar un plan súper sano y libre de conflictos.</button></div>
+    </div>
+
+  <div class="caja-pregunta">
+      <p><strong>4. ¿Cómo reaccionás frente a una discusión fuerte con alguien que querés?</strong></p>
+      <div><button id="btn-4-A" onclick="elegirOpcion(4, 'A', 'btn-4-A')">A) Elevo la apuesta haciendo algo súper dramático.</button></div>
+      <div><button id="btn-4-B" onclick="elegirOpcion(4, 'B', 'btn-4-B')">B) Aplico el tratamiento del silencio o hago un comentario pasivo-agresivo impecable.</button></div>
+      <div><button id="btn-4-C" onclick="elegirOpcion(4, 'C', 'btn-4-C')">C) Me angustio, evado el conflicto y termino pidiendo perdón para que pase rápido.</button></div>
+      <div><button id="btn-4-D" onclick="elegirOpcion(4, 'D', 'btn-4-D')">D) Te escucho sin mostrar ninguna emoción y te aclaro que estás dramatizando la situación.</button></div>
+      <div><button id="btn-4-E" onclick="elegirOpcion(4, 'E', 'btn-4-E')">E) Entro en pánico, trato de mediar y cambio de tema para que todos vuelvan a sonreír.</button></div>
+    </div>
+
+  <div class="caja-pregunta">
+      <p><strong>5. Si tenés que musicalizar un viaje en auto, ¿qué ponés?</strong></p>
+      <div><button id="btn-5-A" onclick="elegirOpcion(5, 'A', 'btn-5-A')">A) Algo para cantar a los gritos llorando.</button></div>
+      <div><button id="btn-5-B" onclick="elegirOpcion(5, 'B', 'btn-5-B')">B) Un audiolibro.</button></div>
+      <div><button id="btn-5-C" onclick="elegirOpcion(5, 'C', 'btn-5-C')">C) Pop de los 2000.</button></div>
+      <div><button id="btn-5-D" onclick="elegirOpcion(5, 'D', 'btn-5-D')">D) Alguna banda under de la que seguro nunca escuchaste hablar.</button></div>
+      <div><button id="btn-5-E" onclick="elegirOpcion(5, 'E', 'btn-5-E')">E) ¡La banda sonora original de algun musical!</button></div>
+    </div>
+   
+    <div class="caja-boton-final">
+      <button class="boton-calcular" onclick="calcularResultado()">Ver mi resultado</button>
+    </div>
+
+    <div id="resultado-quiz" style="display:none;">
+      <h2 id="nombre-personaje"></h2>
+      <p id="descripcion-personaje"></p>
+    </div>
+</section>
+        <footer class="footer-copyright">
+           <div class="info-contacto">
+        <p>Contacto: <a href="mailto:info@a24.com">info@a24.com</a></p>
+        <p>Seguinos en: 
+            <a href="https://www.instagram.com/ladybirdmovie/" target="_blank">Instagram</a> | 
+            <a href="https://letterboxd.com/film/lady-bird/" target="_blank">Letterboxd</a> | 
+            <a href="https://twitter.com/LadyBirdMovie" target="_blank">X (Twitter)</a>
+        </p>
+      </div>
+        <p class="legales">© 2026 - Todos los derechos reservados</p>
+       </footer>
+    
+<script src="script.js"></script>
+</body>
+</html>
