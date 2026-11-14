@@ -254,19 +254,29 @@ function elegirOpcion(numeroPregunta, letra, idBotonElegido) {
 }
 
 function calcularResultado() {
+    const faltantes = [];
+    for (let i = 1; i <= 5; i++) {
+        if (misRespuestas[i] === "") {
+            faltantes.push(i);
+        }
+    }
+
+    if (faltantes.length > 0) {
+        alert("Por favor, respondé todas las preguntas antes de ver tu resultado. Te falta completar la pregunta: " + faltantes.join(", ") + ".");
+        return;
+    }
+
     const puntos = { A: 0, B: 0, C: 0, D: 0, E: 0 };
-   
+
     for (let i = 1; i <= 5; i++) {
         let letraSeleccionada = misRespuestas[i];
-        if (letraSeleccionada != "") {
-            puntos[letraSeleccionada]++;
-        }
+        puntos[letraSeleccionada]++;
     }
 
     const opciones = ["A", "B", "C", "D", "E"];
     let ganador = "A";
     let maxPuntos = 0;
-   
+
     for (let indice = 0; indice < opciones.length; indice++) {
         let letraActual = opciones[indice];
         if (puntos[letraActual] > maxPuntos) {
