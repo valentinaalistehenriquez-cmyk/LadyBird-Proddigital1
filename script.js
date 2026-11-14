@@ -64,6 +64,7 @@ function toggleMenu() {
     const navLinks = document.getElementById("nav-links");
     navLinks.classList.toggle("activo");
 }
+
 const carrito = [];
 let usuarioLogueado = false; 
 
@@ -138,7 +139,10 @@ function finalizarCompra() {
     }
 }
 
-
+function toggleMenu() {
+    const navLinks = document.getElementById("nav-links");
+    navLinks.classList.toggle("activo");
+}
 
 
 const misRespuestas = {

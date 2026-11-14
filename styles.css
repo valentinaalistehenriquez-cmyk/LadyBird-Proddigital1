@@ -1,13 +1,17 @@
-body{
-    background-color:#F8D7DA;
-    margin:0%;
-    padding:20px;
-    font-family: 'inter', serif;
+* {
+    box-sizing: border-box;
 }
 
-@font-face{
-     font-family:"Amador";
-     src: url('Fonts/Amador-W01-Regular.woff') format('woff');
+body {
+    background-color: #F8D7DA;
+    margin: 0%;
+    padding: 20px;
+    font-family: 'Inter', serif;
+}
+
+@font-face {
+    font-family: "Amador";
+    src: url('Fonts/Amador-W01-Regular.woff') format('woff');
 }
 
 .menu-toggle {
@@ -19,66 +23,39 @@ body{
     color: #d00515;
 }
 
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-        .info-dos-columnas {
-        flex-direction: column;
-    }
+h1 {
+    color: #d00515;
+    font-family: "Amador", cursive;
+    text-align: center;
+    font-size: 8rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: normal;
 }
 
-.header-izquierda {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: #f0c2c5;
-        padding: 20px 0;
-        text-align: center;
-        gap: 20px;
-        box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-        overflow: hidden
-    }
-
-.header-izquierda.activo {
-        display: flex;
-    }
+h2 {
+    color: #d00515;
+    font-family: "Amador", cursive;
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: normal;
 }
 
-h1{
-     color:#d00515;
-     font-family:"Amador", cursive;
-     text-align:center;
-     font-size: 8rem;
-     margin-top: 20px;
-     margin-bottom: 20px;
-     font-weight: normal;
-}
-
-h2{
-     color:#d00515;
-     font-family:"Amador", cursive;
-     text-align:center;
-     font-size: 3rem;
-     margin-top: 20px;
-     margin-bottom: 20px;
-     font-weight: normal;
-}
-
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:10px 20px;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
     background-color: #f0c2c5;
+    position: relative;
 }
 
-.header-izquierda,.header-derecha{
-display:flex;
-align-items:center;
-gap: 30px;
+.header-izquierda, .header-derecha {
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
 .icono-carrito {
@@ -93,39 +70,39 @@ gap: 30px;
     align-items: center;
 }
 
-nav a{
-    text-decoration:none;
-    color:#C85258;
+nav a {
+    text-decoration: none;
+    color: #C85258;
     font-family: 'Playfair Display', serif;
     font-size: 1.2rem;
     font-weight: bold;
 }
 
-nav a.usando{
+nav a.usando {
     font-weight: bold;
-    color:#D00515
+    color: #D00515;
 }
 
-section{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-.videocontainer{
-    width:100%;
-    max-width:800px;
+.videocontainer {
+    width: 100%;
+    max-width: 800px;
 }
 
-.videocontainer iframe{
-    width:100%;
-    height:450px;
+.videocontainer iframe {
+    width: 100%;
+    height: 450px;
 }
 
-.info-dos-columnas{
-    display:flex;
-    justify-content:space-between;
+.info-dos-columnas {
+    display: flex;
+    justify-content: space-between;
     align-items: stretch;
     max-width: 900px;
     margin: 40px auto;
@@ -134,14 +111,14 @@ section{
 }
 
 .recuadro-caja {
-background-color:#F7C6CB;
-border-radius: 8px;
-padding: 25px;
+    background-color: #F7C6CB;
+    border-radius: 8px;
+    padding: 25px;
 }
 
-.info-dos-columnas .columna{
-    flex:1;
-    padding:0 30px;
+.info-dos-columnas .columna {
+    flex: 1;
+    padding: 0 30px;
 }
 
 .columna-izquierda {
@@ -152,23 +129,25 @@ padding: 25px;
     color: #d00515;
     font-size: 1.8rem;
     margin-bottom: 15px;
-    font-family:'Playfair Display', serif;
+    font-family: 'Playfair Display', serif;
     font-weight: bold;
 }
 
-.info-dos-columnas p{
+.info-dos-columnas p {
     color: #000;
     line-height: 1.6;
     font-family: "Inter", serif;
-    font-size:1.3rem;
+    font-size: 1.3rem;
 }
+
 .seccion-cita {
     max-width: 600px;
     margin: 40px auto;
     text-align: center;
     padding: 0 20px;
 }
-.cita-critica .texto-cita{
+
+.cita-critica .texto-cita {
     font-style: italic;
     font-size: 1.6rem;
     color: #000000;
@@ -182,7 +161,7 @@ padding: 25px;
 }
 
 .footer-copyright {
-  background-color: #f0c2c5;
+    background-color: #f0c2c5;
     padding: 30px 20px;
     text-align: center;
     margin-top: 50px;
@@ -227,20 +206,6 @@ padding: 25px;
     max-width: 600px;
 }
 
-#botonesAuth {
-    display: inline-flex;
-    align-items: center;
-    gap: 30px;
-}
-
-#botonesAuth {
-    color: #C85258; 
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-}
-
-
-
 .popup {
     position: fixed;
     top: 50%;
@@ -252,7 +217,7 @@ padding: 25px;
     border: 2px solid #d00515;
     border-radius: 8px;
     box-shadow: 0px 4px 20px rgba(0,0,0,0.6);
-    z-index: 1000; 
+    z-index: 1000;
 }
 
 .boton-cerrar {
@@ -270,6 +235,88 @@ padding: 25px;
 
 .boton-cerrar:hover {
     opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .header-izquierda {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #f0c2c5;
+        padding: 20px 0;
+        text-align: center;
+        gap: 20px;
+        box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+
+    .header-izquierda.activo {
+        display: flex;
+    }
+
+    .header-derecha {
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    .info-dos-columnas {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .info-dos-columnas .columna {
+        padding: 20px;
+    }
+
+    .columna-izquierda {
+        border-right: none;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    nav a {
+        font-size: 1rem;
+    }
+
+    .videocontainer iframe {
+        height: 230px;
+    }
+
+    .info-dos-columnas p {
+        font-size: 1.1rem;
+    }
+
+    .cita-critica .texto-cita {
+        font-size: 1.3rem;
+    }
+
+    .popup {
+        width: 90%;
+        max-width: 320px;
+        padding: 20px;
+    }
 }
 
 .personajes {
