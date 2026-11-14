@@ -160,16 +160,67 @@ function vaciarCarrito() {
 
 function finalizarCompra() {
     const usuario = localStorage.getItem("usuarioLogueado");
+    if (carrito.length === 0) {
+        document.getElementById("textoMensaje").innerText = "Tu carrito está vacío. Agregá algún producto antes de comprar.";
+        document.getElementById("mensajeLindo").style.display = "block";
+        cerrarCarrito();
+        return;
+    }
     if (!usuario) {
         document.getElementById("textoMensaje").innerText = "Para finalizar tu compra, tenés que iniciar sesión o registrarte.";
         document.getElementById("mensajeLindo").style.display = "block";
         cerrarCarrito();
-    } else {
-        document.getElementById("textoMensaje").innerText = "¡Gracias por tu compra, " + usuario + "! Te enviaremos los detalles al mail.";
-        document.getElementById("mensajeLindo").style.display = "block";
-        vaciarCarrito();
-        cerrarCarrito();
+        return;
     }
+    let total = 0;
+    let detalleHTML = "<p style='margin: 0 0 8px 0; font-weight: bold; color: #d00515;'>Resumen de tu pedido:</p>";
+    
+    for (let i = 0; i < carrito.length; i++) {
+        detalleHTML += "<p style='margin: 4px 0;'>• " + carrito[i].nombre + " - $" + carrito[i].precio + "</p>";
+        total += carrito[i].precio;
+    }
+    
+    detalleHTML += "<p style='margin: 10px 0 0 0; padding-top: 8px; border-top: 1px solid #d00515; font-weight: bold; font-size: 1.05rem;'>Total a pagar: $" + total + "</p>";
+
+    document.getElementById("resumen-checkout").innerHTML = detalleHTML;
+    cerrarCarrito();
+    document.getElementById("popup-checkout").style.display = "block";
+}
+
+function cerrarCheckout() {
+    document.getElementById("popup-checkout").style.display = "none";
+}
+
+function confirmarPedido() {
+    const direccion = document.getElementById("checkout-direccion").value;
+    const metodoPago = document.getElementById("checkout-pago").value;
+    const usuario = localStorage.getItem("usuarioLogueado");
+    const email = localStorage.getItem("cuentaEmail") || "tu correo electrónico";
+
+    if (direccion === "") {
+        alert("Por favor, ingresá una dirección de envío.");
+        return;
+    }
+
+  let total = 0;
+    for (let i = 0; i < carrito.length; i++) {
+        total += carrito[i].precio;
+    }
+    const numeroOrden = Math.floor(1000 + Math.random() * 9000);
+    document.getElementById("textoMensaje").innerHTML = 
+        "¡Gracias por tu compra, " + usuario + "!" +
+        "<span style='display:block; font-family:\"Inter\", serif; font-size:0.95rem; font-weight:normal; color:#000; margin-top:12px; line-height:1.5;'>" +
+        "<strong>Orden:</strong> #LB-" + numeroOrden + "<br>" +
+        "<strong>Total abonado:</strong> $" + total + "<br>" +
+        "<strong>Envío a:</strong> " + direccion + "<br>" +
+        "<strong>Pago:</strong> " + metodoPago + "<br>" +
+        "<em style='font-size:0.85rem; color:#444;'>Enviamos el comprobante a " + email + "</em>" +
+        "</span>";
+
+    document.getElementById("checkout-direccion").value = "";
+    cerrarCheckout();
+    vaciarCarrito();
+    document.getElementById("mensajeLindo").style.display = "block";
 }
 
 const misRespuestas = {
