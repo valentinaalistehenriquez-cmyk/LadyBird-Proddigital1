@@ -45,11 +45,12 @@
         </span>
       </span>
     </nav>
-    
     <div id="popup-login" class="popup recuadro-caja" style="display: none;">
-      <h3 style="color:#d00515; font-family:'Playfair Display', serif;">Iniciar Sesión</h3>
-      <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Nombre:</p>
-      <input type="text" id="login-nombre" placeholder="Ej: Valentina" style="margin-bottom: 15px; padding: 5px; width: 100%;">
+      <h3 style="color:#d00515; font-family:'Playfair Display', serif; margin-top: 0;">Iniciar Sesión</h3>
+      <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Email:</p>
+      <input type="email" id="login-email" placeholder="lady@bird.com" style="margin-bottom: 12px; padding: 8px; width: 100%; border-radius: 5px; border: 1px solid #ccc;">
+      <p style="font-family:'Inter', serif; margin-bottom: 5px;">Contraseña:</p>
+      <input type="password" id="login-password" placeholder="••••••••" style="margin-bottom: 15px; padding: 8px; width: 100%; border-radius: 5px; border: 1px solid #ccc;">
       <button onclick="procesarLogin()" class="boton-cerrar">Ingresar</button>
       <button onclick="cerrarPopups()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
       <p style="margin-top: 15px; font-family:'Inter', serif; font-size: 14px;">
@@ -58,11 +59,13 @@
     </div>
     
     <div id="popup-registro" class="popup recuadro-caja" style="display: none;">
-      <h3 style="color:#d00515; font-family:'Playfair Display', serif;">Registrarse</h3>
+      <h3 style="color:#d00515; font-family:'Playfair Display', serif; margin-top: 0;">Registrarse</h3>
       <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Nombre:</p>
-      <input type="text" id="registro-nombre" placeholder="Ej: Valentina" style="margin-bottom: 15px; padding: 5px; width: 100%;">
+      <input type="text" id="registro-nombre" placeholder="Ej: Valentina" style="margin-bottom: 12px; padding: 8px; width: 100%; border-radius: 5px; border: 1px solid #ccc;">
       <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Email:</p>
-      <input type="email" id="registro-email" placeholder="lady@bird.com" style="margin-bottom: 15px; padding: 5px; width: 100%;">
+      <input type="email" id="registro-email" placeholder="lady@bird.com" style="margin-bottom: 12px; padding: 8px; width: 100%; border-radius: 5px; border: 1px solid #ccc;">
+      <p style="font-family:'Inter', serif; margin-bottom: 5px;">Contraseña:</p>
+      <input type="password" id="registro-password" placeholder="••••••••" style="margin-bottom: 15px; padding: 8px; width: 100%; border-radius: 5px; border: 1px solid #ccc;">
       <button onclick="procesarRegistro()" class="boton-cerrar">Crear cuenta</button>
       <button onclick="cerrarPopups()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
     </div>

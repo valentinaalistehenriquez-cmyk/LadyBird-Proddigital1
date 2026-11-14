@@ -1,6 +1,7 @@
 function abrirLogin() {
     document.getElementById('popup-registro').style.display = 'none';
     document.getElementById('popup-login').style.display = 'block';
+    document.querySelector('#popup-login h3').innerText = "Iniciar Sesión";
 }
 
 function abrirRegistro() {
@@ -13,25 +14,54 @@ function cerrarPopups() {
     document.getElementById('popup-registro').style.display = 'none';
 }
 
-function procesarLogin() {
-    const nombre = document.getElementById('login-nombre').value;
-    if (nombre !== "") {
-        localStorage.setItem("usuarioLogueado", nombre);
-        actualizarHeader(nombre);
-        cerrarPopups();
+function procesarRegistro() {
+    const nombre = document.getElementById('registro-nombre').value;
+    const email = document.getElementById('registro-email').value;
+    const password = document.getElementById('registro-password').value;
+    if (nombre !== "" && email !== "" && password !== "") {
+      localStorage.setItem("cuentaNombre", nombre);
+        localStorage.setItem("cuentaEmail", email);
+        localStorage.setItem("cuentaPassword", password);
+        document.getElementById('registro-nombre').value = "";
+        document.getElementById('registro-email').value = "";
+        document.getElementById('registro-password').value = "";
+        abrirLogin();
+        document.querySelector('#popup-login h3').innerText = "¡Cuenta creada! Iniciá sesión";
+        document.getElementById('login-email').value = email;
+        document.getElementById('login-password').value = "";
     } else {
-        alert("Por favor, ingresá tu nombre para iniciar sesión.");
+        alert("Por favor, completá todos los campos para registrarte.");
     }
 }
 
-function procesarRegistro() {
-    const nombre = document.getElementById('registro-nombre').value;
-    if (nombre !== "") {
-        localStorage.setItem("usuarioLogueado", nombre);
-        actualizarHeader(nombre);
+function procesarLogin() {
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
+    if (email === "" || password === "") {
+        alert("Por favor, ingresá tu email y contraseña.");
+        return;
+    }
+
+    const emailGuardado = localStorage.getItem("cuentaEmail");
+    const passGuardada = localStorage.getItem("cuentaPassword");
+    const nombreGuardado = localStorage.getItem("cuentaNombre");
+
+    if (emailGuardado) {
+        // Verifica que coincidan el email y la contraseña registrados
+        if (email === emailGuardado && password === passGuardada) {
+            localStorage.setItem("usuarioLogueado", nombreGuardado);
+            actualizarHeader(nombreGuardado);
+            cerrarPopups();
+        } else {
+            alert("Email o contraseña incorrectos.");
+        }
+        } else {
+        // Si entra directo sin haberse registrado antes, usa la parte anterior al @
+        const nombreDesdeEmail = email.split("@")[0];
+        localStorage.setItem("usuarioLogueado", nombreDesdeEmail);
+        actualizarHeader(nombreDesdeEmail);
         cerrarPopups();
-    } else {
-        alert("Por favor, ingresá tu nombre para registrarte.");
     }
 }
 
@@ -39,9 +69,12 @@ function cerrarSesion() {
     localStorage.removeItem("usuarioLogueado");
     document.getElementById('botones-ingreso').style.display = 'inline';
     document.getElementById('mensaje-bienvenida').style.display = 'none';
-    document.getElementById('login-nombre').value = "";
+    
+    document.getElementById('login-email').value = "";
+    document.getElementById('login-password').value = "";
     document.getElementById('registro-nombre').value = "";
     document.getElementById('registro-email').value = "";
+    document.getElementById('registro-password').value = "";
 }
 
 function actualizarHeader(nombre) {
@@ -63,7 +96,6 @@ function toggleMenu() {
     const navLinks = document.getElementById("nav-links");
     navLinks.classList.toggle("activo");
 }
-
 
 const carrito = [];
 
@@ -139,7 +171,6 @@ function finalizarCompra() {
         cerrarCarrito();
     }
 }
-
 
 const misRespuestas = {
     1: "",
