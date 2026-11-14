@@ -262,19 +262,15 @@ function calcularResultado() {
     }
 
     if (faltantes.length > 0) {
-    const textoAviso = faltantes.length === 1
-      ? "Por favor, respondé todas las preguntas antes de ver tu resultado. Te falta completar la pregunta " + faltantes[0] + "."
-      : "Por favor, respondé todas las preguntas antes de ver tu resultado. Te faltan completar las preguntas: " + faltantes.join(", ") + ".";
+        const textoAviso = faltantes.length === 1
+            ? "Por favor, respondé todas las preguntas antes de ver tu resultado. Te falta completar la pregunta " + faltantes[0] + "."
+            : "Por favor, respondé todas las preguntas antes de ver tu resultado. Te faltan completar las preguntas: " + faltantes.join(", ") + ".";
 
-    document.getElementById("texto-aviso-quiz").innerText = textoAviso;
-    document.getElementById("overlay-quiz").style.display = "block";
-    document.getElementById("popup-aviso-quiz").style.display = "block";
-    return;
-  }
-  function cerrarAvisoQuiz() {
-  document.getElementById("overlay-quiz").style.display = "none";
-  document.getElementById("popup-aviso-quiz").style.display = "none";
-}
+        document.getElementById("texto-aviso-quiz").innerText = textoAviso;
+        document.getElementById("overlay-quiz").style.display = "block";
+        document.getElementById("popup-aviso-quiz").style.display = "block";
+        return;
+    }
 
     const puntos = { A: 0, B: 0, C: 0, D: 0, E: 0 };
 
@@ -321,6 +317,11 @@ function calcularResultado() {
     document.getElementById("nombre-personaje").innerText = "¡Sos " + perfiles[ganador].nombre + "!";
     document.getElementById("descripcion-personaje").innerText = perfiles[ganador].descripcion;
     document.getElementById("resultado-quiz").style.display = "block";
+}
+
+function cerrarAvisoQuiz() {
+    document.getElementById("overlay-quiz").style.display = "none";
+    document.getElementById("popup-aviso-quiz").style.display = "none";
 }
 
 const tarjetasPersonajes = document.querySelectorAll('.cuadrado-personaje');
