@@ -310,7 +310,7 @@ function calcularResultado() {
         },
         E: {
             nombre: "Danny",
-            descripcion: "Sos pura luz y entusiasmo. Romántico/a, educado/a y con una sensibilidad artística gigante. Tratás siempre de complacer a los demás."
+            descripcion: "Sos pura luz y entusiasmo. Romántico/a, educado/a y con una sensibilidad artística gigante. Siempre tratas de complacer a los demás."
         }
     };
 
