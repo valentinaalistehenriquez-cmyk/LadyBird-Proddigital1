@@ -30,7 +30,7 @@
     </nav>
     
     <nav class="header-derecha">
-      <a href="#" class="carrito-link">
+     <a href="#" onclick="mostrarCarrito(); return false;" class="carrito-link">
         <img src="carrito.png" alt="Carrito" class="icono-carrito">
       </a>
       
@@ -45,6 +45,7 @@
         </span>
       </span>
     </nav>
+  </header>
     <div id="popup-login" class="popup recuadro-caja" style="display: none;">
       <h3 style="color:#d00515; font-family:'Playfair Display', serif; margin-top: 0;">Iniciar Sesión</h3>
       <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Email:</p>
@@ -69,7 +70,31 @@
       <button onclick="procesarRegistro()" class="boton-cerrar">Crear cuenta</button>
       <button onclick="cerrarPopups()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
     </div>
-</header>
+    <div id="cajaCarrito" style="display: none;"></div>
+
+<div id="mensajeLindo" style="display: none;">
+  <p id="textoMensaje"></p>
+  <button onclick="cerrarMensaje()" class="boton-cerrar">Aceptar</button>
+</div>
+
+<div id="popup-checkout" class="popup recuadro-caja" style="display: none; width: 90%; max-width: 400px; max-height: 90vh; overflow-y: auto;">
+  <h3 style="color:#d00515; font-family:'Playfair Display', serif; margin-top: 0;">Finalizar Compra</h3>
+  
+  <div id="resumen-checkout" style="background-color: #ffefef; border: 1px solid #d00515; border-radius: 6px; padding: 12px; margin-bottom: 15px; font-family:'Inter', serif; font-size: 0.9rem; color: #000;"></div>
+
+  <p style="font-family:'Inter', serif; margin-bottom: 5px; font-weight: bold; font-size: 0.95rem;">Dirección de envío:</p>
+  <input type="text" id="checkout-direccion" placeholder="Ej: Av. Santa Fe 1234, CABA" style="margin-bottom: 12px; padding: 8px; width: 100%; border-radius: 5px; border: 1px solid #ccc;">
+
+  <p style="font-family:'Inter', serif; margin-bottom: 5px; font-weight: bold; font-size: 0.95rem;">Método de pago:</p>
+  <select id="checkout-pago" style="margin-bottom: 15px; padding: 8px; width: 100%; border-radius: 5px; border: 1px solid #ccc; font-family:'Inter', serif; background-color: white;">
+    <option value="Tarjeta de crédito / débito">Tarjeta de crédito / débito</option>
+    <option value="Transferencia / Mercado Pago">Transferencia / Mercado Pago</option>
+    <option value="Efectivo al retirar">Efectivo al retirar</option>
+  </select>
+
+  <button onclick="confirmarPedido()" class="boton-cerrar">Confirmar pedido</button>
+  <button onclick="cerrarCheckout()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
+</div>
         
   <h1>Lady Bird</h1>
         <section>
@@ -104,12 +129,6 @@
         <p class="legales">© 2026 - Todos los derechos reservados</p>
       </footer>
     </div>
-   <div id="overlay-quiz" class="overlay-popup" style="display: none;" onclick="cerrarAvisoQuiz()"></div>
-      <div id="popup-aviso-quiz" class="popup-lindo" style="display: none;">
-        <h3>¡Casi listo!</h3>
-        <p id="texto-aviso-quiz"></p>
-        <button onclick="cerrarAvisoQuiz()" class="boton-cerrar">Volver al quiz</button>
-      </div>
-      <script src="script.js"></script>
+        <script src="script.js"></script>
       </body>
 </html>

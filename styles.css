@@ -1067,3 +1067,9 @@ input[type="radio"][name="premios"] {
     margin-bottom: 20px;
 }
 
+#cajaCarrito {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 2000;
+}

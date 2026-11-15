@@ -97,7 +97,11 @@ function toggleMenu() {
     navLinks.classList.toggle("activo");
 }
 
-const carrito = [];
+let carrito = JSON.parse(localStorage.getItem("carritoLadyBird")) || [];
+
+function guardarCarrito() {
+    localStorage.setItem("carritoLadyBird", JSON.stringify(carrito));
+}
 
 function agregarAlCarrito(nombreProducto, precioProducto) {
     const nuevoProducto = {
@@ -105,6 +109,7 @@ function agregarAlCarrito(nombreProducto, precioProducto) {
         precio: precioProducto
     };
     carrito.push(nuevoProducto);
+    guardarCarrito();
     document.getElementById("textoMensaje").innerText = "¡Agregaste " + nombreProducto + " al carrito!";
     document.getElementById("mensajeLindo").style.display = "block";
 }
@@ -117,16 +122,22 @@ function actualizarCarritoDOM() {
     let caja = document.getElementById("cajaCarrito");
     let total = 0;
     let textoParaElDOM = "<h3 style='color:#d00515; font-family:\"Amador\", cursive; margin-top:0;'>Tu Carrito</h3>";
-    for (let i = 0; i < carrito.length; i++) {
-        textoParaElDOM = textoParaElDOM + "<p style='font-family:\"Inter\", serif;'>" + carrito[i].nombre + " - $" + carrito[i].precio + "</p>";
-        total = total + carrito[i].precio;
+
+    if (carrito.length === 0) {
+        textoParaElDOM += "<p style='font-family:\"Inter\", serif;'>Tu carrito está vacío.</p>";
+    } else {
+        for (let i = 0; i < carrito.length; i++) {
+            textoParaElDOM += "<p style='font-family:\"Inter\", serif;'>" + carrito[i].nombre + " - $" + carrito[i].precio + "</p>";
+            total += carrito[i].precio;
+        }
     }
-    textoParaElDOM = textoParaElDOM + "<h4 style='color:#d00515; font-family:\"Playfair Display\", serif;'>Total: $" + total + "</h4>";
+
+    textoParaElDOM += "<h4 style='color:#d00515; font-family:\"Playfair Display\", serif;'>Total: $" + total + "</h4>";
     
-    textoParaElDOM = textoParaElDOM + "<button class='boton-cerrar' onclick='borrarUltimo()' style='margin-right: 10px; margin-bottom: 10px;'>Borrar último</button>";
-    textoParaElDOM = textoParaElDOM + "<button class='boton-cerrar' onclick='vaciarCarrito()'>Vaciar todo</button><br>";
-    textoParaElDOM = textoParaElDOM + "<button class='boton-cerrar' onclick='finalizarCompra()' style='margin-right: 10px;'>Finalizar compra</button>";
-    textoParaElDOM = textoParaElDOM + "<button class='boton-cerrar' onclick='cerrarCarrito()'>Cerrar</button>";
+    textoParaElDOM += "<button class='boton-cerrar' onclick='borrarUltimo()' style='margin-right: 10px; margin-bottom: 10px;'>Borrar último</button>";
+    textoParaElDOM += "<button class='boton-cerrar' onclick='vaciarCarrito()'>Vaciar todo</button><br>";
+    textoParaElDOM += "<button class='boton-cerrar' onclick='finalizarCompra()' style='margin-right: 10px;'>Finalizar compra</button>";
+    textoParaElDOM += "<button class='boton-cerrar' onclick='cerrarCarrito()'>Cerrar</button>";
 
     caja.innerHTML = textoParaElDOM;
 }
@@ -147,14 +158,14 @@ function cerrarCarrito() {
 }
 
 function borrarUltimo() {
-    carrito.pop(); 
+    carrito.pop();
+    guardarCarrito();
     actualizarCarritoDOM(); 
 }
 
 function vaciarCarrito() {
-    while (carrito.length > 0) {
-        carrito.pop();
-    }
+    carrito = [];
+    guardarCarrito();
     actualizarCarritoDOM(); 
 }
 
@@ -202,7 +213,7 @@ function confirmarPedido() {
         return;
     }
 
-  let total = 0;
+    let total = 0;
     for (let i = 0; i < carrito.length; i++) {
         total += carrito[i].precio;
     }
