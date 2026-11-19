@@ -1,7 +1,7 @@
 <!DOCTYPE html:5>
 <html>
     <head>
-        <title> El universo de la pelicula</title>
+        <title>Tienda Lady Bird</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <link rel="stylesheet" href="styles.css">
          <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,70 +70,32 @@
       <button onclick="cerrarPopups()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
     </div>
 
-    <div id="cajaCarrito" style="display: none;"></div>
+   <div id="cajaCarrito" style="display: none;" class="recuadro-caja"></div>
 
-<div id="mensajeLindo" style="display: none;">
-  <p id="textoMensaje"></p>
-  <button onclick="cerrarMensaje()" class="boton-cerrar">Aceptar</button>
-</div>
-
-<div id="popup-checkout" class="popup recuadro-caja" style="display: none; width: 90%; max-width: 400px; max-height: 90vh; overflow-y: auto;">
-  <h3 style="color:#d00515; font-family:'Playfair Display', serif; margin-top: 0;">Finalizar Compra</h3>
-  
-  <div id="resumen-checkout" style="background-color: #ffefef; border: 1px solid #d00515; border-radius: 6px; padding: 12px; margin-bottom: 15px; font-family:'Inter', serif; font-size: 0.9rem; color: #000;"></div>
-
-  <p style="font-family:'Inter', serif; margin-bottom: 5px; font-weight: bold; font-size: 0.95rem;">Dirección de envío:</p>
-  <input type="text" id="checkout-direccion" placeholder="Ej: Av. Santa Fe 1234, CABA" style="margin-bottom: 12px; padding: 8px; width: 100%; border-radius: 5px; border: 1px solid #ccc;">
-
-  <p style="font-family:'Inter', serif; margin-bottom: 5px; font-weight: bold; font-size: 0.95rem;">Método de pago:</p>
-  <select id="checkout-pago" style="margin-bottom: 15px; padding: 8px; width: 100%; border-radius: 5px; border: 1px solid #ccc; font-family:'Inter', serif; background-color: white;">
-    <option value="Tarjeta de crédito / débito">Tarjeta de crédito / débito</option>
-    <option value="Transferencia / Mercado Pago">Transferencia / Mercado Pago</option>
-    <option value="Efectivo al retirar">Efectivo al retirar</option>
-  </select>
-
-  <button onclick="confirmarPedido()" class="boton-cerrar">Confirmar pedido</button>
-  <button onclick="cerrarCheckout()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
-</div>
+    <div id="mensajeLindo" style="display: none;">
+      <p id="textoMensaje"></p>
+      <button onclick="cerrarMensaje()" class="boton-cerrar">Aceptar</button>
+    </div>
 
     <div id="popup-checkout" class="popup recuadro-caja" style="display: none; width: 90%; max-width: 400px; max-height: 90vh; overflow-y: auto;">
       <h3 style="color:#d00515; font-family:'Playfair Display', serif; margin-top: 0;">Finalizar Compra</h3>
       <div id="resumen-checkout" style="background-color: #ffefef; border: 1px solid #d00515; border-radius: 6px; padding: 12px; margin-bottom: 15px; font-family:'Inter', serif; font-size: 0.9rem; color: #000;"></div>
 
-  <p style="font-family:'Inter', serif; margin-bottom: 5px; font-weight: bold; font-size: 0.95rem;">Dirección de envío:</p>
-  <input type="text" id="checkout-direccion" placeholder="Ej: Av. Santa Fe 1234, CABA" style="margin-bottom: 12px; padding: 8px; width: 100%; border-radius: 5px; border: 1px solid #ccc;">
+      <p style="font-family:'Inter', serif; margin-bottom: 5px; font-weight: bold; font-size: 0.95rem;">Dirección de envío:</p>
+      <input type="text" id="checkout-direccion" placeholder="Ej: Av. Santa Fe 1234, CABA" style="margin-bottom: 12px; padding: 8px; width: 100%; border-radius: 5px; border: 1px solid #ccc;">
 
-  <p style="font-family:'Inter', serif; margin-bottom: 5px; font-weight: bold; font-size: 0.95rem;">Método de pago:</p>
-  <select id="checkout-pago" style="margin-bottom: 15px; padding: 8px; width: 100%; border-radius: 5px; border: 1px solid #ccc; font-family:'Inter', serif; background-color: white;">
-    <option value="Tarjeta de crédito / débito">Tarjeta de crédito / débito</option>
-    <option value="Transferencia / Mercado Pago">Transferencia / Mercado Pago</option>
-    <option value="Efectivo al retirar">Efectivo al retirar</option>
-  </select>
+      <p style="font-family:'Inter', serif; margin-bottom: 5px; font-weight: bold; font-size: 0.95rem;">Método de pago:</p>
+      <select id="checkout-pago" style="margin-bottom: 15px; padding: 8px; width: 100%; border-radius: 5px; border: 1px solid #ccc; font-family:'Inter', serif; background-color: white;">
+        <option value="Tarjeta de crédito / débito">Tarjeta de crédito / débito</option>
+        <option value="Transferencia / Mercado Pago">Transferencia / Mercado Pago</option>
+        <option value="Efectivo al retirar">Efectivo al retirar</option>
+      </select>
 
-  <button onclick="confirmarPedido()" class="boton-cerrar">Confirmar pedido</button>
-  <button onclick="cerrarCheckout()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
-</div>
+      <button onclick="confirmarPedido()" class="boton-cerrar">Confirmar pedido</button>
+      <button onclick="cerrarCheckout()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
+    </div>
 
-        <h1>Tienda</h1>
-        <div id="cajaCarrito" style="display: none;" class="recuadro-caja"></div>
-        <div id="mensajeLindo" style="display: none;">
-          <p id="textoMensaje"></p>
-          <button onclick="cerrarMensaje()" class="boton-cerrar">Aceptar</button>
-        </div>
-        
-        <div id="cajaLogin" style="display: none;" class="recuadro-caja">
-          <h3 style="color:#d00515; font-family:'Playfair Display', serif;">Iniciar Sesión</h3>
-          <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Nombre:</p>
-          <input type="text" id="inputNombre" placeholder="Ej: Valentina" style="margin-bottom: 15px; padding: 5px;">
-          <p style="font-family:'Inter', serif; margin-bottom: 5px;">Tu Email:</p>
-          <input type="email" id="inputEmail" placeholder="lady@bird.com" style="margin-bottom: 15px; padding: 5px;">
-          
-          <br>
-          <button onclick="procesarLogin()" class="boton-cerrar">Entrar</button>
-          <button onclick="cerrarLogin()" class="boton-cerrar" style="background-color: #333;">Cancelar</button>
-        </div>
-
-        
+        <h1> Tienda </h1>
         <section class="contenedor-tienda">
         <div class="cuadrado-producto">
           <img src="AAtiendafotos/CAPAZQULTIMOPARXE.jpg">
@@ -159,7 +121,7 @@
         <div class="cuadrado-producto">
           <img src="AAtiendafotos/Opcionesposters.jpg">
           <h3>Posters Lady Bird</h3>
-          <p>Poster a elección</p>
+          <p>Poster aleatorio</p>
           <p class="precio">$8.000</p>
           <button onclick="agregarAlCarrito('Posters Lady Bird', 8000)"> Comprar</button>
         </div>

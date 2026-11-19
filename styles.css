@@ -683,10 +683,6 @@ input[type="radio"][name="premios"] {
     color: white;
 }
 
-/* ==========================================
-   FORMULARIOS
-========================================== */
-
 .seccion-formulario {
     display: flex;
     justify-content: center;

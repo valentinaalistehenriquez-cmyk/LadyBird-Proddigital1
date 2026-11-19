@@ -360,5 +360,3 @@ tarjetasPremios.forEach(function(tarjeta) {
         tarjeta.classList.toggle('activo');
     });
 });
-
-
